@@ -10,6 +10,7 @@ newSlide(
   display_settings = list(),
   title = "",
   subtitle = "",
+  transform = NULL,
   ...
 )
 }
@@ -31,6 +32,8 @@ exports show labels on bars or arcs of donuts.}
 \item{title}{The slide's title}
 
 \item{subtitle}{The slide's subtitle}
+
+\item{transform}{(For future support) A list of transformations}
 
 \item{...}{Further options to be passed on to the API}
 }

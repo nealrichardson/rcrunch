@@ -238,7 +238,7 @@ with_mock_crunch({
             '"countsOrPercents":{"value":"percent"},',
             '"decimalPlaces":{"value":1},',
             '"showSignif":{"value":true},',
-            '"currentTab":{"value":0}}}]}}'
+            '"currentTab":{"value":0}},"transform":{}}]}}'
         )
     })
 

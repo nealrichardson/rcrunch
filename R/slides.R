@@ -204,6 +204,7 @@ DEFAULT_DISPLAY_SETTINGS <- list(
 #' exports show labels on bars or arcs of donuts.
 #' @param title The slide's title
 #' @param subtitle The slide's subtitle
+#' @param transform (For future support) A list of transformations
 #' @param ... Further options to be passed on to the API
 #'
 #' @return CrunchSlide object
@@ -258,6 +259,7 @@ newSlide <- function(deck,
                      display_settings = list(),
                      title = "",
                      subtitle = "",
+                     transform = NULL,
                      ...) {
     # TODO allow newSlide to accept list of formulas. In order for this to work
     # we need to send the analysis order. The only current use case for multiple
@@ -268,12 +270,15 @@ newSlide <- function(deck,
 
     settings <- modifyList(DEFAULT_DISPLAY_SETTINGS, display_settings)
     settings <- wrapDisplaySettings(settings)
+    
+    if (is.null(transform)) transform <- emptyObject()
 
     payload <- list(title = title, subtitle = subtitle, ...)
     payload[["analyses"]] <- lapply(query, function(x) {
         return(list(
             query = formulaToCubeQuery(x, ds),
-            display_settings = settings
+            display_settings = settings,
+            transform = transform
         ))
     })
     payload <- wrapEntity(body = payload)
