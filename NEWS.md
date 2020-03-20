@@ -1,4 +1,7 @@
 # crunch 1.27.5 (Development version)
+* `interactVariables()` now uses server side logic to create categories so that it's faster,
+but the `sep` argument is no longer supported (it's always set to `" and "`) and the category
+order will not be the same.
 
 # crunch 1.27.4
 * Fixes to pkgdown documentation website
