@@ -4,9 +4,13 @@ with_mock_crunch({
     ds <- loadDataset("test ds")
 
     test_that("interactVariables", {
-        interaction_var <- interactVariables(ds$gender, ds$gender, name = "interaction!", collapse_missings = TRUE)
+        interaction_var <- interactVariables(
+            ds$gender, ds$gender,
+            name = "interaction!",
+            collapse_missings = TRUE
+        )
         expect_is(interaction_var, "VariableDefinition")
-        
+
         # Two arguments, first with the 2 variables, the second with collapse_missings
         expect_equal(length(interaction_var$derivation$args), 2)
         expect_equal(length(interaction_var$derivation$args[[1]]), 2)
@@ -30,7 +34,12 @@ with_mock_crunch({
             "must supply more than one variable to make an interaction"
         )
         expect_warning(
-            interaction_var <- interactVariables(ds$gender, ds$gender, name = "interaction!", sep = " - "),
+            interaction_var <- interactVariables(
+                ds$gender,
+                ds$gender,
+                name = "interaction!",
+                sep = " - "
+            ),
             "The `sep` argument is no longer supported"
         )
     })
