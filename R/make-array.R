@@ -10,9 +10,12 @@
 #' Dataset subset which contains only the Variables to bind.
 #' @param name character, the name that the new Categorical Array variable
 #' should have.
-#' @param selections character, for `makeMR` and `deriveArray` the names of the
-#' categories to mark as the dichotomous selections. Required for
-#' `makeMR`; optional for `deriveArray`; ignored in `makeArray`.
+#' @param selections character (preferred, indicating the names of the
+#' categories), or numeric (indicating the IDs of the categories
+#' in the combined array, which may not be the same as in the original
+#' variables - also note that a category's ID is not the same thing
+#' as its `numeric_value`). Required for `makeMR`; optional for
+#' `deriveArray`; ignored in `makeArray`.
 #' @param ... Optional additional attributes to set on the new variable.
 #' @return A VariableDefinition that when added to a Dataset will create the
 #' categorical-array or multiple-response variable. `deriveArray` will

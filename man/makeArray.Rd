@@ -21,9 +21,12 @@ should have.}
 
 \item{...}{Optional additional attributes to set on the new variable.}
 
-\item{selections}{character, for \code{makeMR} and \code{deriveArray} the names of the
-categories to mark as the dichotomous selections. Required for
-\code{makeMR}; optional for \code{deriveArray}; ignored in \code{makeArray}.}
+\item{selections}{character (preferred, indicating the names of the
+categories), or numeric (indicating the IDs of the categories
+in the combined array, which may not be the same as in the original
+variables - also note that a category's ID is not the same thing
+as its \code{numeric_value}). Required for \code{makeMR}; optional for
+\code{deriveArray}; ignored in \code{makeArray}.}
 }
 \value{
 A VariableDefinition that when added to a Dataset will create the
